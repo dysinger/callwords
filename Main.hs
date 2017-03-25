@@ -24,7 +24,7 @@ main = do
         pure . S.fromList . lines . map C.toUpper . filter (/= '\'') =<<
         readFile "/usr/share/dict/american-english"
     let alpha = ['A' .. 'Z']
-        region = ['0', '1', '3', '4']
+        region = ['0', '1', '3', '4', '5', '6']
         oneByOnes =
             [[a, n, b] | a <- "KNW"
                        , n <- region
@@ -62,6 +62,8 @@ main = do
         leet '1' = 'I'
         leet '3' = 'E'
         leet '4' = 'A'
+        leet '5' = 'S'
+        leet '6' = 'G'
         leet x = x
         callWords = map (map leet) calls
         wordToCall = M.fromList (zip callWords calls)
